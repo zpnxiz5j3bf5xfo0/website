@@ -1,0 +1,30 @@
+<!doctypehtml><html lang=en><title>What is DNS?</title><meta charset=utf-8><meta content="text/html; charset=utf-8"http-equiv=Content-type><meta content="width=device-width,initial-scale=1"name=viewport><link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel=stylesheet><style>body{background-color:#f0f0f2;margin:0;padding:0;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#1c1c1c}div{width:600px;margin:5em auto;padding:2em;background-color:#fdfdff;border-radius:.5em;box-shadow:2px 3px 7px 2px rgba(0,0,0,.02)}a:link,a:visited{color:#38488f;text-decoration:none}@media (max-width:700px){div{margin:0 auto;width:auto}}.google-style-container{position:relative;border:1px solid #dadce0;border-radius:4px;margin:20px 0;overflow:hidden;width:fit-content;background-color:#fff;display:flex;align-items:center}.code-content{padding-top:4px;padding-bottom:4px;padding-left:6px;padding-right:30px;overflow-x:auto}.code-content pre{margin:0;padding:0;line-height:1}.code-content code{font-family:Consolas,'Lucida Console',Menlo,Monaco,"Liberation Mono","Courier New",monospace;font-size:13px;color:#202124;display:inline-block;height:auto;line-height:1.2;overflow:hidden;white-space:pre;margin-top:0;margin-bottom:0}.copy-button{position:absolute;top:50%;transform:translateY(-50%);right:4px;background-color:transparent;color:#9aa0a6;border:none;border-radius:4px;padding:4px;cursor:pointer;opacity:0;transition:opacity .2s ease-in-out,color .2s;line-height:1}.copy-button .material-icons{font-size:14px;line-height:1;display:block}.google-style-container:hover .copy-button{opacity:1}.copy-button:hover{color:#5f6368}.copy-button.copied{color:#34a853;opacity:1;pointer-events:none}</style><div><p><a href=/en/ >Back to the main page</a><h1>What is DNS?</h1><p>The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names, like example.com or example.org. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.<p><a href=https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/ >About DNS...</a><h1>What is a DNS record?</h1><p>DNS records are instructions that live in authoritative DNS servers and provide information about a domain including what IP address is associated with that domain and how to handle requests for that domain. These records consist of a series of text files written in what is known as DNS syntax. DNS syntax is just a string of characters used as commands that tell the DNS server what to do.<p><a href=https://www.ibm.com/think/topics/dns-records>About DNS records...</a><h1>Types of DNS records</h1><p>A record - The record that holds the IPv4 address of a domain.<p>AAAA record - The record that contains the IPv6 address for a domain.<p>CNAME record - Forwards one domain or subdomain to another domain.<p>MX record - Directs mail to an email server.<p>TXT record - Lets an admin store text notes in the record. These records are often used for email security.<p>NS record - Stores the name server for a DNS entry.<p>SOA record - Stores admin information about a domain.<p><a href=https://www.site24x7.com/learn/dns-record-types.html>About the types of DNS records...</a><h1>How do I find the IP address of a particular domain?</h1><p>For this purpose, you can use the nslookup command followed by the domain name in your system's Terminal. So for example, to find out the IP address of google.com, you would use:<section class=google-style-container><section class=code-content><pre><code id=code-to-copy-1>nslookup google.com</code></pre></section><button class=copy-button data-target=code-to-copy-1><span class=material-icons>content_copy</span></button></section><p>The output will look similar to this:<section class=google-style-container><section class=code-content><pre><code id=code-to-copy-1>Server:		67.207.67.3
+Address:	67.207.67.3#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 142.250.184.238
+Name:	google.com
+Address: 2a00:1450:4001:82b::200e</code></pre></section><button class=copy-button data-target=code-to-copy-1><span class=material-icons>content_copy</span></button></section>The addresses in the non-authoritative answer are the IP addresses of the domain.<p><a href=https://www.wikihow.com/Find-a-Website%27s-IP-Address>About finding IP addresses of a domain...</a><h1>What is a nameserver?</h1><p>A nameserver is a type of DNS server. It is the server that stores all DNS records for a domain, including A records, MX records, or CNAME records.<p><a href=https://kinsta.com/knowledgebase/what-is-a-nameserver/ >About nameservers...</a></div><script>document.addEventListener('DOMContentLoaded', () => {
+            const copyButton = document.querySelector('.copy-button');
+            const targetId = copyButton.getAttribute('data-target');
+            const codeSnippet = document.getElementById(targetId);
+            const iconElement = copyButton.querySelector('.material-icons');
+            if (codeSnippet && iconElement) {
+                copyButton.addEventListener('click', async () => {
+                    const textToCopy = codeSnippet.textContent.trim();
+                    try {
+                        await navigator.clipboard.writeText(textToCopy);
+                        iconElement.textContent = 'check';
+                        copyButton.classList.add('copied');
+                        setTimeout(() => {
+                            iconElement.textContent = 'content_copy';
+                            copyButton.classList.remove('copied');
+                        }, 2000); 
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        iconElement.textContent = 'error';
+                    }
+                });
+            }
+        });</script>
